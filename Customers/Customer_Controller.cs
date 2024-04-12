@@ -11,19 +11,18 @@ namespace Customers
 {
     internal class Customer_Controller
     {
-        //String connectionString;
-        SqlDataAdapter? dataAdapter;
+        String connectionString;
+        //SqlDataAdapter? dataAdapter;
         BindingSource? bindingSource;
         public Customer_Controller() {
-            //connectionString = "Data Source=MHK-SQL-ACTIVE;Initial Catalog=MANKO4;Persist Security Info=True;User ID=nflores";
-            dataAdapter = new SqlDataAdapter();
+            connectionString = ""; //connection string should be defined in app.config so we don't have to paste it here every time
+            //dataAdapter = new SqlDataAdapter();
             bindingSource = new BindingSource();
         }
 
         public DataTable GetData(string command)
         {
             //dataAdapter = new SqlDataAdapter(command, connection);
-            String connectionString = "Data Source=MHK-SQL-ACTIVE;Initial Catalog=MANKO4;Persist Security Info=True";
             DataTable dt = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
